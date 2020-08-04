@@ -18,7 +18,7 @@ public class pro10 {
         int n1 = array[0];
         int n2 = array[0];
         int n3 = array[0];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { //Time Complexity O(n)
             if(array[i] > n1){
                 n3 = n2;
                 n2 = n1;
