@@ -11,15 +11,16 @@ public class pro12 {
         for (int i = 0; i < size; i++) {
             array[i] = scanner.nextInt();
         }
-        System.out.println(findSum(array,size));
+        System.out.println(findSum(array, size));// print only true or false based on sum is 0 or not in sub array.
     }
 
+    // Time Complexity is O(n)
     private static boolean findSum(int[] array, int size) {
         int sum = 0;
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < size; i++) {
             sum += array[i];
-            if(set.contains(sum) || array[i] == 0 || sum == 0){
+            if (set.contains(sum) || array[i] == 0 || sum == 0) {
                 return true;
             }
             set.add(sum);
