@@ -1,6 +1,6 @@
 package com.data.structure;
 
-public interface List<E> {
+public interface List<E> extends Iterable<E> {
 
     public void addFirst(E obj);
 

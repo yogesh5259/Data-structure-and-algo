@@ -1,6 +1,9 @@
 package com.data.structure;
 
-public class LinkedList<E> implements List<E> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class LinkedList<E> implements List<E>, Iterable<E> {
 
 
     // Inner class for node
@@ -12,6 +15,29 @@ public class LinkedList<E> implements List<E> {
         public Node(E obj) {
             data = obj;
             next = null;
+        }
+    }
+
+
+    class IteratorHelper implements Iterator<E> {
+
+        Node<E> index;
+        public IteratorHelper(){
+            index = head;
+        }
+        @Override
+        public boolean hasNext() {
+            return (index != null);
+        }
+
+        @Override
+        public E next() {
+            if(!hasNext()){
+                throw new NoSuchElementException();
+            }
+            E val = index.data;
+            index = index.next;
+            return val;
         }
     }
 
@@ -200,5 +226,12 @@ public class LinkedList<E> implements List<E> {
         }
         return tail.data;
     }
+
+
+    @Override
+    public Iterator<E> iterator() {
+        return new IteratorHelper();
+    }
+
 
 }

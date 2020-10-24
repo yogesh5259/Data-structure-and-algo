@@ -6,8 +6,11 @@ public class Tester {
         List<Integer> list = new LinkedList<Integer>();
         int n = 10;
         for (int i = 0; i < n; i++) {
-            list.addFirst(i);
+            list.addLast(i);
         }
-        System.out.println(list.getCurrentSize());
+
+        for (int x : list) {
+            System.out.print(x + " ");
+        }
     }
 }
