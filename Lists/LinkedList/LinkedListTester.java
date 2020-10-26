@@ -1,7 +1,7 @@
-import com.data.structure.LinkedList;
-import com.data.structure.List;
+import com.data.LinkedList.LinkedList;
+import com.data.LinkedList.List;
 
-public class Tester {
+public class LinkedListTester {
     public static void main(String[] args) {
         List<Integer> list = new LinkedList<Integer>();
         int n = 10;

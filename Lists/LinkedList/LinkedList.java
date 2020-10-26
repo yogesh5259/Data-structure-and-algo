@@ -1,4 +1,4 @@
-package com.data.structure;
+package com.data.LinkedList;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

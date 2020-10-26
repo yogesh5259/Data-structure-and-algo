@@ -1,4 +1,4 @@
-package com.data.structure;
+package com.data.LinkedList;
 
 public interface List<E> extends Iterable<E> {
 
