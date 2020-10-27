@@ -1,9 +1,12 @@
 package com.data.DoublyLinkedList;
 
-public class DoublyLinkedList<E> implements List<E> {
+import java.util.Iterator;
+
+public class DoublyLinkedList<E> implements List<E>, Iterable<E> {
     private int size = 0;
     private Node<E> head = null;
     private Node<E> tail = null;
+
 
 
     private static class Node<E> {
@@ -116,26 +119,124 @@ public class DoublyLinkedList<E> implements List<E> {
 
     @Override
     public E removeLast() {
-        return null;
-    }
+        if (isEmpty()) throw new RuntimeException("Empty List");
+        E data = tail.data;
+        tail = tail.prev;
+        --size;
 
+        if (isEmpty()) head = null;
+        else tail.next = null;
+        return data;
+    }
+    private E remove(Node<E> node){
+        if (node.prev == null) return removeFirst();
+        if (node.next == null) return removeLast();
+
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+
+        E data = node.data;
+        node.next = node.prev = null;
+        node.data = null;
+        --size;
+        return data;
+    }
     @Override
     public E removeAt(int index) {
-        return null;
+        if (index < 0 || index > size) throw new IllegalArgumentException();
+
+        int i;
+        Node<E> trav;
+        if (size / 2 > index){
+            for (i = 0, trav = head; i != index; i++) {
+                trav = trav.next;
+            }
+        } else {
+            for (i = size - 1, trav = tail; i != index; i--){
+                trav = trav.prev;
+            }
+        }
+        return remove(trav);
     }
 
     @Override
     public boolean remove(Object obj) {
+        Node<E> trav = head;
+        if (obj == null) {
+            for (trav = head; trav != null; trav = trav.next){
+                if (trav.data == null) {
+                    remove(trav);
+                    return true;
+                }
+            }
+        } else {
+            for (trav = head; trav != null; trav = trav.next){
+                if (obj.equals(trav.data)){
+                    remove(trav);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public int indexOf(Object obj) {
-        return 0;
+        Node<E> trav = head;
+        int index = 0;
+        if (obj == null) {
+            for (trav = head; trav != null; trav = trav.next, index++){
+                if (trav.data == null) {
+                    return index;
+                }
+
+            }
+        } else {
+            for (trav = head; trav != null; trav = trav.next, index++){
+                if (obj.equals(trav.data)){
+                    return index;
+                }
+            }
+        }
+        return -1;
     }
 
     @Override
     public boolean contains(Object obj) {
-        return false;
+        return indexOf(obj) != -1;
     }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
+            private Node<E> trav = head;
+
+            @Override
+            public boolean hasNext() {
+                return trav != null;
+            }
+
+            @Override
+            public E next() {
+                E data = trav.data;
+                trav = trav.next;
+                return data;
+            }
+        };
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        Node<E> trav = head;
+        while (trav != null){
+            sb.append(trav.data);
+            if (trav.next != null) sb.append(", ");
+            trav = trav.next;
+        }
+        sb.append(" ]");
+        return sb.toString();
+    }
+
 }
