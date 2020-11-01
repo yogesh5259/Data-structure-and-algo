@@ -1,29 +1,57 @@
 package com.data.ListStack;
 
-public class ListStack<E> implements Stack<E> {
+import java.util.EmptyStackException;
+import java.util.Iterator;
+
+public class ListStack<E> implements Stack<E>, Iterable<E> {
     java.util.LinkedList<E> list = new java.util.LinkedList<>();
+
+    public ListStack(){
+
+    }
+
+    public ListStack(E elem){
+        push(elem);
+    }
+
     @Override
     public int size() {
-        return 0;
+        return list.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return list.size() == 0;
     }
 
     @Override
     public void push(E elem) {
-
+        list.addLast(elem);
     }
 
     @Override
     public E pop() {
-        return null;
+        if (isEmpty()) throw new EmptyStackException();
+        E data = list.removeLast();
+        return data;
     }
 
     @Override
     public E peek() {
-        return null;
+        if (isEmpty()) throw new EmptyStackException();
+        return list.peekLast();
+    }
+
+    //Search about the element Starting from top of stack
+    // Return -1 if element is not present
+    public int search(E elem){
+        return list.size() - list.lastIndexOf(elem);
+    }
+
+    //iterate over stack
+
+    @Override
+    public Iterator<E> iterator() {
+        return list.iterator();
     }
 }
