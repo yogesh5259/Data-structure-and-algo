@@ -2,11 +2,11 @@ import java.util.Arrays;
 
 public class MergeSort{
     public static void main(String[] args) {
-        int[] array = {1,2,3,4,5,6};
-        array = sort(array);
+        int[] array = {6,5,4,3,2,1};
+        array = mergeSort(array);
         System.out.println(Arrays.toString(array));
     }
-    public static int[] sort(int[] array){
+    public static int[] mergeSort(int[] array){
         if(array.length <= 1){
             return array;
         }
@@ -20,8 +20,8 @@ public class MergeSort{
             right[i] = array[i+mid];
         }
         int[] result = new int[array.length];
-        left = sort(left);
-        right = sort(right);
+        left = mergeSort(left);
+        right = mergeSort(right);
         result = merge(left,right);
         return result;
     }
@@ -56,3 +56,22 @@ public class MergeSort{
         return result;
     }
 }
+
+/**
+ * MergeSort Analysis
+ * 
+ * Algorithmic Paradigm
+ * -> Divide and Conquer
+ * 
+ * Time Complexity
+ * -> O(nlogn) in best, worst, Average case
+ * 
+ * Space Complexity
+ * -> O(n) 
+ * 
+ * Stability
+ * -> Yes
+ * 
+ * Sorting in place 
+ * -> No
+ */
