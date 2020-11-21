@@ -40,9 +40,11 @@ class EuclidGCD {
 
 
 /**
+ * GCD -> Greatest common divisor 
+ * 
  * Time complexity
- * In year 1840 proven that O(number of digits in b) where b is smaller number
- * O(logb) where b is the smaller number
+ * -> In year 1840 proven that O(number of digits in b) where b is smaller number
+ * -> O(logb) where b is the smaller number
  * 
  * 
  * 
