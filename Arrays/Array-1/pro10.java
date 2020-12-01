@@ -21,13 +21,12 @@ public class pro10 {
                 array[high] = array[low];
                 array[low] = temp;
                 high--;
-
             }
         }
         for (int i : array) {
             System.out.print(i + " ");
 
         }
-        
+        scanner.close();
     }
 }

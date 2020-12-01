@@ -20,5 +20,6 @@ public class pro9 {
         }
 
         System.out.println(max - min);
+        scanner.close();
     }
 }

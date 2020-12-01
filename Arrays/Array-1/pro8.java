@@ -25,7 +25,7 @@ public class pro8 {
                     temp = array[high];
                     array[high] = array[mid];
                     array[mid] = temp;
-                    mid++;
+                    //mid++;
                     high--;
                     break;
             }
