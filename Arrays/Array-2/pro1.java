@@ -1,9 +1,8 @@
 import java.util.HashSet;
 
-/*package whatever //do not write package name here */
 class pro1 {
 	public static void intersection(int[] array1, int[] array2) {
-		HashSet<Integer> set = new HashSet(); 
+		HashSet<Integer> set = new HashSet<>(); 
 		for (int i = 0; i < array1.length; i++) {
 			set.add(array1[i]);
 		}
@@ -14,7 +13,7 @@ class pro1 {
 		}
 	}
 	public static void union(int[] array1, int[] array2){
-		HashSet<Integer> set = new HashSet(); 		// space complexity O(m+n)
+		HashSet<Integer> set = new HashSet<>(); // space complexity O(m+n)
 		for (int i = 0; i < array1.length; i++) { // O(n)
 			set.add(array1[i]);			// O(1) operation on set take constant time
 		}
