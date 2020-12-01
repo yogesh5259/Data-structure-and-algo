@@ -43,5 +43,6 @@ public class pro8 {
         for (int i : array) {
             System.out.print(i + " ");
         }
+        scanner.close();
     }
 }

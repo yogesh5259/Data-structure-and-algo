@@ -15,5 +15,6 @@ public class pro7 {
             }
         }
         System.out.println(count);
+        scanner.close();
     }
 }

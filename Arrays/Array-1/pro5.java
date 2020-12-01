@@ -36,6 +36,6 @@ public static void PrintArray(int[] array) {
         }
         SelectionSort(array);
         PrintArray(array);
-        
+        scanner.close();
     }
 }

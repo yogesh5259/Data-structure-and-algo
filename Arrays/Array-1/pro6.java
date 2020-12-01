@@ -1,5 +1,6 @@
-import java.util.Scanner;
 
+
+// Efficient way of solving this problem is HEAP data structure
 public class pro6 {
 
     public static void SelectionSort(int[] array) {
@@ -17,18 +18,11 @@ public class pro6 {
         }
     }
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int k = scanner.nextInt();
-        int size = scanner.nextInt();
-        int[] array = new int[size];
-
-        for (int i = 0; i < size; i++) {
-            array[i] = scanner.nextInt();
-        }  
-
+        int[] array ={1,2,3,4,5,9,6,33,19};
+        int k = 3;
         SelectionSort(array);
-        System.out.println(array[array.length - k]);
-
+        System.out.println("Largest: "+ array[array.length - k]);
+        System.out.println("Smallest: "+ array[k - 1]);
 
     }
 
