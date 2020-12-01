@@ -1,6 +1,6 @@
 public class EuclidLCM {
     public static void main(String[] args) {
-        System.out.println(lcm(100,27));
+        System.out.println(lcm(3,29));
     }
 
     private static int lcm(int a ,int b){
